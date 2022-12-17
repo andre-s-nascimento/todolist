@@ -1,0 +1,16 @@
+version: '4.15'
+
+services:
+  database:
+    image: postgres
+    container_name: todolist_db
+    environment:
+      POSTGRES_USER: "serverside"
+      POSTGRES_PASSWORD: "serverside"
+      POSTGRES_DB: "todosdb"
+    ports:
+      - "5432:5432"
+    volumes:
+      - todosdb:/var/lib/postgresql/data
+volumes:
+  todosdb:
