@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @Entity(name = "todo")
 public class Todo {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @SequenceGenerator(name = "todo_sequence", sequenceName = "todo_sequence", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long id;
   @Column(name = "title", nullable = false, length = 100, columnDefinition = "VARCHAR(100)")
   private String title;
